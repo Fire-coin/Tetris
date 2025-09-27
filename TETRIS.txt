@@ -1,0 +1,19 @@
+Prog "TFIELD"
+203->A ' The phantom square from which the relative coordinates going to be calculated
+1->G
+0->S
+While G=1
+    Int(A/10)->Y
+    A-10Y->X
+    If Y=2
+        Then 0->G
+    Else Locate Y, X, " "
+        Y-1->Y
+        Locate Y, X, "*"
+        10Y+X->A
+        For 1->I To 30 Step 1
+        Next
+    IfEnd
+WhileEnd
+Locate 1, 1, "UR SCORE"
+Locate 9, 1, S
