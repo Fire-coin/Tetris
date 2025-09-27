@@ -1,0 +1,8 @@
+ClrText
+For 1->I To 21 Step 1
+    Locate I, 1, "#"
+    Locate 22-I, 7, "#"
+Next
+For 2-> I To 6 Step 1
+    Locate 1, I, "#"
+Next
