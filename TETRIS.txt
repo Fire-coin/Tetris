@@ -5,14 +5,31 @@ Prog "TFIELD"
 While G=1
     Int(A/10)->Y
     A-10Y->X
+    X->N
+    Y->M
+    For 1->I To 4
+        Getkey->K
+        If K=37 And N<6
+            Then N+1->N
+        IfEnd
+        If K=28 And N>2
+            Then N-1->N
+        IfEnd
+        If N!=X
+            Then Locate Y, X, " "
+            Locate Y, N, "*"
+        IfEnd
+        N->X
+        For 1->J To 10 Step 1
+        Next
+    Next
     If Y=2
         Then 0->G
-    Else Locate Y, X, " "
+    Else Locate Y, N, " "
         Y-1->Y
+        N->X
         Locate Y, X, "*"
         10Y+X->A
-        For 1->I To 30 Step 1
-        Next
     IfEnd
 WhileEnd
 Locate 1, 1, "UR SCORE"
