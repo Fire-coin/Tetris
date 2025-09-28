@@ -2,6 +2,17 @@ Prog "TFIELD"
 203->A ' The phantom square from which the relative coordinates going to be calculated
 1->G
 0->S
+List 3[1]->H
+H->O
+For 1->I To 4
+    Int (O/100)->P
+    O-100P->P
+    Int (P/10)->R
+    P-10R->Q
+    Int (O/100)->O
+    R->List 4[2I-1]
+    Q->List 4[2I]
+Next
 While G=1
     Int(A/10)->Y
     A-10Y->X
@@ -20,8 +31,6 @@ While G=1
             Locate Y, N, "*"
         IfEnd
         N->X
-        For 1->J To 10 Step 1
-        Next
     Next
     If Y=2
         Then 0->G
