@@ -48,12 +48,7 @@ While G=1
             Then For 1->J To 4 ' This is checking wheter prompted transformation is valid
                 List 4[2J-1]+N->Q ' The X coordinate of a point
                 Y-List 4[2J]->R ' The Y coordinate of a point
-                If Q>6 Or Q<2 ' Rejecting case for X
-                    Then X->N
-                    0->B
-                    List 5->List 4
-                IfEnd
-                If R<2 ' Rejecting case for Y
+                If Q>6 Or Q<2 Or R<2 ' Rejecting case for X
                     Then X->N
                     0->B
                     List 5->List 4
@@ -85,10 +80,7 @@ While G=1
     For 1->I To 4 ' Checking wheter shape can go down by 1
         List 4[2I-1]+N->Q
         M-List 4[2I]->R
-        If Q>6 Or Q<2
-            Then 0->G
-        IfEnd
-        If R<2
+        If Q>6 Or Q<2 Or R<2
             Then 0->G
         IfEnd
     Next
