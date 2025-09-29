@@ -2,7 +2,7 @@ Prog "TFIELD"
 202->A ' The phantom square from which the relative coordinates going to be calculated
 1->G
 0->S
-List 3[1]->H
+List 3[Int (7Ran#)+1]->H
 H->O
 For 1->I To 4
     Int (O/100)->P
