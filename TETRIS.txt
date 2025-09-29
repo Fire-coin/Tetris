@@ -28,8 +28,8 @@ While G=1
         IfEnd
         If N!=X
             Then For 1->J To 4
-                List 4[2I-1]+N->Q
-                Y-List 4[2I]->R
+                List 4[2J-1]+N->Q
+                Y-List 4[2J]->R
                 If Q>6 Or Q<2
                     Then X->N
                 IfEnd
@@ -39,13 +39,13 @@ While G=1
             Next
             If X!=N
                 Then For 1->J To 4
-                    List 4[2I-1]+X->Q
-                    Y-List 4[2I]->R
+                    List 4[2J-1]+X->Q
+                    Y-List 4[2J]->R
                     Locate R, Q, " "
                 Next
                 For 1->J To 4
-                    List 4[2I-1]+N->Q
-                    Y-List 4[2I]->R
+                    List 4[2J-1]+N->Q
+                    Y-List 4[2J]->R
                     Locate R, Q, "*"
                 Next
             IfEnd
