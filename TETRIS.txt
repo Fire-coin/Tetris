@@ -118,7 +118,20 @@ While D=1
         Next
     IfEnd
 WhileEnd
-
+Y->M
+While M>=Y-4 And M>=2
+    1->Z
+    For 1->I To 5
+        If Mat F[M-1, I]=0
+            Then 0->Z
+        IfEnd
+    Next
+    If Z=1
+        Then For 2->I To 6
+                Locate M, I, " "
+            Next
+    IfEnd
+    M-1->M    
 WhileEnd
 Locate 1, 1, "UR SCORE"
 Locate 9, 1, S
