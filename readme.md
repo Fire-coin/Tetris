@@ -25,5 +25,6 @@
 I have only 32KB of memory, for everything on this calculator, and I use it as my personal one, so I don't want to run out of memory.
 
 # Challenge
-The CPU is slow compared to computer, so for it to not load too long I needed to optimize everything as much as poccible.
+The CPU is slow compared to computer, so for it to not load too long I needed to optimize everything as much as possible.
+
 
