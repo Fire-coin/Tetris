@@ -7,6 +7,8 @@ Locate 1, 7, "UR SCORE"
 While G=1
     Locate 9, 7, S
     202->A ' The phantom square from which the relative coordinates going to be calculated
+    20->Y
+    2->X
     1->D
     List 3[Int (7Ran#)+1]->H
     H->O
@@ -18,6 +20,13 @@ While G=1
         Int (O/100)->O
         R->List 4[2I-1]
         Q->List 4[2I]
+        R+X->R
+        Y-Q->Q
+        Locate Q, R, "*"
+        If Mat F[Q-1, R-1]=1
+            Then 0->D
+                0->G
+        IfEnd
     Next
     While D=1
         ' Add initial rendering and checking of shape
