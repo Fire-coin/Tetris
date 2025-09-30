@@ -1,7 +1,10 @@
 Prog "TFIELD"
-202->A ' The phantom square from which the relative coordinates going to be calculated
 1->G
 0->S
+0->F
+While G=1
+202->A ' The phantom square from which the relative coordinates going to be calculated
+1->D
 List 3[Int (7Ran#)+1]->H
 H->O
 For 1->I To 4
@@ -13,7 +16,8 @@ For 1->I To 4
     R->List 4[2I-1]
     Q->List 4[2I]
 Next
-While G=1
+While D=1
+    ' Add initial rendering and checking of shape
     Int(A/10)->Y
     A-10Y->X
     X->N ' Future value of X, which has to be checked first
@@ -48,7 +52,9 @@ While G=1
             Then For 1->J To 4 ' This is checking wheter prompted transformation is valid
                 List 4[2J-1]+N->Q ' The X coordinate of a point
                 Y-List 4[2J]->R ' The Y coordinate of a point
-                If Q>6 Or Q<2 Or R<2 ' Rejecting case for X
+                5R+Q-11->T
+                F/10^T->P
+                If Q>6 Or Q<2 Or R<2 Or Int (P)+0.1<=P ' Rejecting case for X
                     Then X->N
                     0->B
                     List 5->List 4
@@ -78,13 +84,15 @@ While G=1
     Next
     M-1->M
     For 1->I To 4 ' Checking wheter shape can go down by 1
-        List 4[2I-1]+N->Q
+        List 4[2I-1]+X->Q
         M-List 4[2I]->R
-        If Q>6 Or Q<2 Or R<2
-            Then 0->G
+        5R+Q-11->T
+        F/10^T->P
+        If Q>6 Or Q<2 Or R<2 Or Int (P)+0.1<=P
+            Then 0->D
         IfEnd
     Next
-    If G=1 ' Moving shape 1 down
+    If D=1 ' Moving shape 1 down
         Then For 1->I To 4
             List 4[2I-1]+X->Q
             Y-List 4[2I]->R
@@ -98,7 +106,14 @@ While G=1
             Locate R, Q, "*"
         Next
         10Y+X->A
+    Else For 1->I To 4
+            List 4[2I-1]+X->Q
+            Y - List 4[2I]->R
+            5R+Q-12->T
+            F+10^T->F
+        Next
     IfEnd
+WhileEnd
 WhileEnd
 Locate 1, 1, "UR SCORE"
 Locate 9, 1, S
