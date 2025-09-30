@@ -17,9 +17,13 @@
 ## Translations to the sides and rotations. I can move shapes from side to side and rotate them
 ## Deletion of rows when filled & tracking score
 ## Blocks falling down, when row is deleted
+## Exiting the game by pressing the period button (get it? There a period before the end)
+## Dynamic update of score after deleting a row
+## Score table of original tetris game
 
 # Limitations
 I have only 32KB of memory, for everything on this calculator, and I use it as my personal one, so I don't want to run out of memory.
 
 # Challenge
 The CPU is slow compared to computer, so for it to not load too long I needed to optimize everything as much as poccible.
+
