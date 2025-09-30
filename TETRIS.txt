@@ -3,7 +3,9 @@ Prog "TFIELD"
 0->S
 0->F
 Fill(0, Mat F)
+Locate 1, 7, "UR SCORE"
 While G=1
+    Locate 9, 7, S
     202->A ' The phantom square from which the relative coordinates going to be calculated
     1->D
     List 3[Int (7Ran#)+1]->H
@@ -48,6 +50,10 @@ While G=1
                     4-T->List 4[2L] ' Putting -X coord of point
                 Next
                 1->B
+            IfEnd
+            If K=61
+                Then 0->D
+                0->G
             IfEnd
             If N!=X Or B=1
                 Then For 1->J To 4 ' This is checking wheter prompted transformation is valid
@@ -149,7 +155,18 @@ While G=1
                     IfEnd
                 Next
             Next
+            If W=1
+                Then S+40->S
+            Else If W=2
+                Then S+100->S
+            Else If W=3
+                Then S+300->S
+            Else If W=4
+                Then S+1200->S
+            IfEnd
+            IfEnd
+            IfEnd
+            IfEnd   
     IfEnd
 WhileEnd
-Locate 1, 1, "UR SCORE"
-Locate 9, 1, S
+Locate 1, 1, "GAME OVER"
